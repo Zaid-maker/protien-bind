@@ -1,5 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export const SidebarDropdown = () => {
-  return <div>SidebarDropdown</div>;
-};
+const SidebarDropdown = () => {
+  return (
+    <div>SidebarDropdown</div>
+  )
+}
+
+export default SidebarDropdown
