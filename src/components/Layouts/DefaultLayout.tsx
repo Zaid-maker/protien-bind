@@ -1,7 +1,13 @@
+"use client";
+
 import React, { useState } from "react";
 import Sidebar from "../Sidebar";
 
-export const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
+export default function DefaultLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -16,4 +22,4 @@ export const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
     </div>
   );
-};
+}
