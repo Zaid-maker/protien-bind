@@ -10,6 +10,9 @@ import {
   MessageSquareText,
   ChevronLeft,
 } from "lucide-react";
+import SidebarDropdown from "./SidebarDropdown";
+import Link from "next/link";
+import Image from "next/image";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -60,7 +63,26 @@ const menuGroups = [
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  return <div>Sidebar</div>;
+  return (
+    <aside>
+      <div>
+        <Link href="/">
+          <div>
+            <div>
+              <Image
+                width={32}
+                height={32}
+                src={"/images/logo/dna.svg"}
+                alt="Logo"
+                priority
+              />
+            </div>
+            <p className="text-xl font-semibold text-white">ProteinBind</p>
+          </div>
+        </Link>
+      </div>
+    </aside>
+  );
 };
 
 export default Sidebar;
