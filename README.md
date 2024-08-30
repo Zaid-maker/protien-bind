@@ -71,12 +71,12 @@ Make sure you have the following installed on your machine:
 
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/en)
-- [npm](https://www.npmjs.com/) (Node Package Manager)
+- [Bun](https://www.bun.sh/) (Node Package Manager)
 
 ### **Cloning the Repository**
 
 ```bash
-git clone https://github.com/mendsalbert/ProteinBind.git
+git clone https://github.com/Zaid-maker/protien-bind.git
 cd proteinbind
 ```
 
