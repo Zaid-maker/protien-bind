@@ -1,18 +1,17 @@
 "use client";
 
-import React from "react";
+import useLocalStorage from "@/hooks/useLocalStorage";
 import {
-  LayoutGrid,
   Atom,
-  Network,
-  Microscope,
-  Settings,
-  MessageSquareText,
   ChevronLeft,
+  LayoutGrid,
+  MessageSquareText,
+  Microscope,
+  Network,
+  Settings,
 } from "lucide-react";
-import SidebarDropdown from "./SidebarDropdown";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { SidebarItem } from "./SidebarItem";
 
 interface SidebarProps {
@@ -64,7 +63,7 @@ const menuGroups = [
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  // const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
+  const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
 
   return (
     <aside
@@ -110,8 +109,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   <SidebarItem
                     key={menuIndex}
                     item={menuItem}
-                    // pageName={pageName}
-                    // setPageName={setPageName}
+                    pageName={pageName}
+                    setPageName={setPageName}
                   />
                 ))}
               </ul>
