@@ -13,6 +13,7 @@ import {
 import SidebarDropdown from "./SidebarDropdown";
 import Link from "next/link";
 import Image from "next/image";
+import { SidebarItem } from "./SidebarItem";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -63,6 +64,8 @@ const menuGroups = [
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
+  // const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
+
   return (
     <aside
       className={`fixed left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-[#000000] lg:translate-x-0 ${
@@ -92,6 +95,29 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
         >
           <ChevronLeft />
         </button>
+      </div>
+
+      <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+        <nav className="mt-5 px-4 py-4 lg:mt-9 lg:px-6">
+          {menuGroups.map((group, groupIndex) => (
+            <div key={groupIndex}>
+              <h3 className="mb-4 ml-4 text-sm font-semibold text-bodydark2">
+                {group.name}
+              </h3>
+
+              <ul className="mb-6 flex flex-col gap-2">
+                {group.menuItems.map((menuItem, menuIndex) => (
+                  <SidebarItem
+                    key={menuIndex}
+                    item={menuItem}
+                    // pageName={pageName}
+                    // setPageName={setPageName}
+                  />
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
       </div>
     </aside>
   );
