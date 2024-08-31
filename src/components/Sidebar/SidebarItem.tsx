@@ -6,6 +6,12 @@ import { usePathname } from "next/navigation";
 export const SidebarItem = ({ item, pageName, setPageName }: any) => {
   const pathname = usePathname();
 
+  const handleClick = () => {
+    const updatedPageName =
+      pageName !== item.label.toLowerCase() ? item.label.toLowerCase() : "";
+    return setPageName(updatedPageName);
+  };
+
   const isActive = (item: any) => {
     if (item.route === pathname) return true;
     if (item.children) {
@@ -22,6 +28,7 @@ export const SidebarItem = ({ item, pageName, setPageName }: any) => {
       <li>
         <Link
           href={item.route}
+          onClick={handleClick}
           className={`${isItemActive ? "rounded-md bg-graydark dark:bg-[#1e1e1e]" : ""} group relative flex items-center gap-2.5 rounded-md px-4 py-2  text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-[#1e1e1e]`}
         >
           {item.icon}
