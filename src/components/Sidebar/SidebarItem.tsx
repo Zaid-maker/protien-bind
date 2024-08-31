@@ -29,7 +29,11 @@ export const SidebarItem = ({ item, pageName, setPageName }: any) => {
         </Link>
 
         {item.children && (
-          <div>
+          <div
+            className={`translate transform overflow-hidden ${
+              pageName !== item.label.toLowerCase() && "hidden"
+            }`}
+          >
             <SidebarDropdown item={item.children} />
           </div>
         )}
