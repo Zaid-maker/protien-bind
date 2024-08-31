@@ -1,3 +1,4 @@
+import Index from "@/components/dashboard";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Metadata } from "next";
 import React from "react";
@@ -8,10 +9,12 @@ export const metadata: Metadata = {
   description: "This is Next.js Home for TailAdmin Dashboard Template",
 };
 
-export default function Home({ children }: { children: React.ReactNode }) {
+export default function Home() {
   return (
     <>
-      <DefaultLayout>{children}</DefaultLayout>
+      <DefaultLayout>
+        <Index />
+      </DefaultLayout>
     </>
   );
 }
