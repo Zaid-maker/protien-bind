@@ -1,4 +1,4 @@
-import Index from "@/components/dashboard";
+import Index from "@/components/Dashboard";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
 import { Metadata } from "next";
 import React from "react";
