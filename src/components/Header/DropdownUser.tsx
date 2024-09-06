@@ -3,11 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useUser } from "@/app/context/UserContext";
 
 const DropdownUser = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  //   const user = useUser();
-  const user = ''
+  const user = useUser();
   const router = useRouter();
 
   return (
@@ -18,15 +18,16 @@ const DropdownUser = () => {
     >
       <span className="hidden text-right lg:block">
         <span className="block text-sm font-medium text-black dark:text-white">
-          firstName
+          {user.firstName} {user.lastName}
         </span>
+        <span className="block text-xs">{user.jobTitle}</span>
       </span>
 
       <span className="h-11 w-11 rounded-full">
         <Image
           width={80}
           height={80}
-          src={user}
+          src={user.photo}
           className="rounded-full"
           style={{
             width: "auto",

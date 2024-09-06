@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
 const UserContext = createContext<any>(null);
@@ -13,5 +13,23 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     userBio: "",
   });
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (session?.user?.email) {
+        // const fetchedUser = await getUserByEmail(session.user.email);
+        // setUser({
+        //   firstName: fetchedUser?.firstName || "John",
+        //   lastName: fetchedUser?.lastName || "Doe",
+        //   photo: fetchedUser?.photo || "/images/user/user-01.png",
+        //   jobTitle: fetchedUser?.jobTitle || "Researcher",
+        //   userBio: fetchedUser?.userBio || "",
+        // });
+      }
+    };
+    fetchUser();
+  }, [session?.user?.email]);
+
   return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
+
+export const useUser = () => useContext(UserContext);
